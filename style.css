@@ -1,12 +1,14 @@
 body{
     padding: 100px;
 }
-
+body h1{
+    margin-bottom: 50px;
+}
 div{
-    background-color: hwb(0 82% 16%);
     height: 300px;
     padding: 30px;
     border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
 }
 div .email{
     width: 100%;

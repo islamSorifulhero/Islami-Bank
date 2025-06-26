@@ -8,12 +8,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+   <header id="login-area">
     <h1 class="text-center">Wellcome To Islami Bank</h1>
-    <div>
+    <div class="submit-area">
         <h1>Login</h1>
         <input class="email" placeholder="Email" type=""><br>
         <input class="password" placeholder="password" type="" name="password" id="">
-        <button class="enter">Enter</button>
+        <button id="login" class="enter">Enter</button>
     </div>
+   </header> 
+    <script>
+        const loginBtn = document.getElementById('login');
+        loginBtn.addEventListener("click", function(){
+            const loginArea = document.getElementById("login-area");
+            loginArea.style.display = 'none';
+        })
+    </script>
 </body>
 </html>
