@@ -25,7 +25,7 @@
             <div class="col-md-4">
                 <div class="deposit status">
                     <h5>Deposit</h5>
-                    <h2>$ <span id="currentDeposit">00</span></h2>
+                    <h2>$ <span id="current-deposit">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
@@ -45,9 +45,9 @@
             <div class="col-md-6">
                 <div class="submit-area">
                     <h4>Deposit</h4>
-                    <input id="depositAmount" type="text" class="form-control" placeholder="$ amount you want to deposit">
+                    <input id="deposit-amount" type="text" class="form-control" placeholder="$ amount you want to deposit">
                     <br>
-                    <button id="addDeposit" class="btn btn-success">Deposit</button>
+                    <button id="add-deposit" class="btn btn-success">Deposit</button>
                 </div>
             </div>
             <div class="col-md-6">
@@ -63,12 +63,27 @@
 
     <script>
         //login-area,  login,   transaction-area
+
         const loginBtn = document.getElementById("login");
         loginBtn.addEventListener("click", function(){
             const loginArea = document.getElementById("login-area");
             loginArea.style.display = "none";
             const transactionArea = document.getElementById("transaction-area");
             transactionArea.style.display = "block";
+        })
+
+        //add-deposit,  deposit-amount,  current-deposit
+        const addDeposit = document.getElementById("add-deposit");
+        addDeposit.addEventListener("click", function(){
+            const depositAmount = document.getElementById("deposit-amount").value;
+            const depositAmountAll = parseFloat(depositAmount);
+            
+            const currentDeposit = document.getElementById("current-deposit").innerText;
+            const currentAmountAll = parseFloat(currentDeposit);
+            const totalDepositCurrent = depositAmountAll + currentAmountAll;
+
+            document.getElementById("current-deposit").innerText = totalDepositCurrent;
+            document.getElementById("deposit-amount").value = "";
         })
 
 
