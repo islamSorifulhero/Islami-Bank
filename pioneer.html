@@ -71,6 +71,7 @@
             const transactionArea = document.getElementById("transaction-area");
             transactionArea.style.display = "block";
         })
+        //------------------------------------------
 
         //add-deposit,  deposit-amount,  current-deposit
         const addDeposit = document.getElementById("add-deposit");
@@ -78,25 +79,32 @@
             const depositAmount = document.getElementById("deposit-amount").value;
             const depositAmountAll = parseFloat(depositAmount);
             
-            const currentDeposit = document.getElementById("current-deposit").innerText;
-            const currentAmountAll = parseFloat(currentDeposit);
-            const totalDepositCurrent = depositAmountAll + currentAmountAll;
+            // const currentDeposit = document.getElementById("current-deposit").innerText;
+            // const currentAmountAll = parseFloat(currentDeposit);
+            // const totalDepositCurrent = depositAmountAll + currentAmountAll;
+            // document.getElementById("current-deposit").innerText = totalDepositCurrent;
 
-            document.getElementById("current-deposit").innerText = totalDepositCurrent;
+            // const current = document.getElementById(id).innerText;
+            // const currentNumber = parseFloat(current);
+            // const total = depositAmountAll + currentNumber;
+            // document.getElementById(id).innerText = total;
 
+            updateSpanText("current-deposit", depositAmountAll);
 
-            const currentBalance = document.getElementById("currentBalance").innerText;
-            const currentBalanceNumber = parseFloat(currentBalance);
-            const totalBalance = depositAmountAll + currentBalanceNumber;
-            document.getElementById("currentBalance").innerText = totalBalance;
+            updateSpanText("currentBalance", depositAmountAll);
     
             document.getElementById("deposit-amount").value = "";
 
-            
         })
 
+        function updateSpanText(id, depositAmountAll){
+            const current = document.getElementById(id).innerText;
+            const currentNumber = parseFloat(current);
+            const total = depositAmountAll + currentNumber;
+            document.getElementById(id).innerText = total;
 
 
+        }
     </script>
 </body>
 </html>
