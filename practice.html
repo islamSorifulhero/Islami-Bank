@@ -25,9 +25,9 @@
                 <button id="add-btn">add</button>
             </div>
             <div id="withdraw">
-                <h1>withdraw 00</h1>
-                <input class="withdraw-num" type="text"> <br><br>
-                <button>withdraw</button>
+                <h1>withdraw <span id="withdraw-num-all">00</span></h1>
+                <input id="withdraw-num" class="withdraw-num" type="text"> <br><br>
+                <button id="withdraw-btn">withdraw</button>
             </div>
         </div>
     </div>
@@ -72,6 +72,22 @@
             document.getElementById("add-num").value = "";
         })
 
+        //withdraw btn
+        var withdrawBtn =document.getElementById("withdraw-btn");
+        withdrawBtn.addEventListener("click", function(){
+            var withdrawNum = document.getElementById("withdraw-num").value;
+            var withdrawNumPf = parseFloat(withdrawNum);
+            var withdrawNumAll = document.getElementById("withdraw-num-all").innerText;
+            var withdrawNumAllPf = parseFloat(withdrawNumAll);
+            var totalWithdraw = withdrawNumPf + withdrawNumAllPf;
+            document.getElementById("withdraw-num-all").innerText = totalWithdraw.toFixed(3);
+
+            var totalBalanceNew = document.getElementById("total-Balance").innerText;
+            var totalBalanceNewPf = parseFloat(totalBalanceNew);
+            var totalBalanceAll = totalBalanceNewPf - withdrawNumPf;
+            document.getElementById("total-Balance").innerText = totalBalanceAll.toFixed(3);
+            document.getElementById("withdraw-num").value = "";
+        })
     </script>
 </body>
 </html>
