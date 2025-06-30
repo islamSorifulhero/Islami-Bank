@@ -10,19 +10,19 @@
     <div id="login-area">
         <h2>Login Sonali BANK</h2>
         <input id="email" class="email" placeholder="Enter Your Account Number" type="text"><br>
-        <input id="password" class="password" placeholder="Enter Your Password" type="text"><br>
+        <input id="password" class="password" placeholder="Enter Your Password" type="password"><br>
         <button id="login" class="login">submit</button>
     </div>
 
     <div id="main-page">
         <div id="total-balance">
-            <h1>Balance 1200</h1>
+            <h1>Balance <span id="total-Balance">1200</span></h1>
         </div>
         <div class="addWithdraw">
             <div id="add">
-                <h1>Deposit: 00</h1>
-                <input class="add-num" type="text"> <br><br>
-                <button>add</button>
+                <h1>Deposit: <span id="add-num-all">00</span></h1>
+                <input id="add-num" class="add-num" type="text"> <br><br>
+                <button id="add-btn">add</button>
             </div>
             <div id="withdraw">
                 <h1>withdraw 00</h1>
@@ -56,6 +56,22 @@
 
 
         //btn event
+        var addBtn = document.getElementById("add-btn");
+        addBtn.addEventListener("click", function(){
+            var addNum = document.getElementById("add-num").value;
+            var addNumPf = parseFloat(addNum);
+            var addNumAll = document.getElementById("add-num-all").innerText;
+            var addNumAllPf = parseFloat(addNumAll);
+            var totalAmount = addNumPf + addNumAllPf;
+            document.getElementById("add-num-all").innerText = totalAmount.toFixed(3);
+
+            var totalBalance = document.getElementById("total-Balance").innerText;
+            var totalBalancePf = parseFloat(totalBalance);
+            var totalBalanceAll = addNumPf + totalBalancePf;
+            document.getElementById("total-Balance").innerText = totalBalanceAll.toFixed(3);
+            document.getElementById("add-num").value = "";
+        })
+
     </script>
 </body>
 </html>
